@@ -1,0 +1,15 @@
+// Only responsible for the blueprint of creating task objects
+import { randomNumGenerator } from "./randomNumGenerator";
+
+class task {
+    constructor(taskName, description, dueDate, priority) {
+        this.taskName = taskName;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
+        this.notes = {};
+        this.id = randomNumGenerator();
+    }
+}
+
+export {task};
