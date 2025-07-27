@@ -4,13 +4,20 @@ import noteIcon from "../assets/noteIcon.svg";
 import trashIcon from "../assets/trashIcon.svg";
 
 const UI = (function() {
+    const sidebar = document.querySelector(".sidebar");
     const addNew = document.querySelector(".addNew");
     const formDialog = document.getElementById("taskCreation");
     const form = document.querySelector("form");
     const submitButton = document.querySelector(".submitButton");
     const checklist = document.querySelector(".checklist");
     const projectsList = document.querySelector("#projectsList");
-    const sidebar = document.querySelector(".sidebar");
+    
+    const noteDialog = document.querySelector("#noteCreation");
+    const noteForm = document.querySelector("#noteForm");
+    const addNoteButton = document.querySelector(".addNote");
+
+    let currentTask;
+
 
     // Functions
     const clearElement = function(element) {
@@ -125,13 +132,28 @@ const UI = (function() {
         handleRenderTasksAndProjects(taskManager.getTasks(), taskManager.getProjects());
     })
 
+    // NOTES NEEDS TO BE WORKED ON
     checklist.addEventListener("click", e => {
-        const noteDialog = document.querySelector("#noteCreation");
+        
+    // ----------------------
         const parentTask = e.target.parentElement.parentElement;
         const taskId = parentTask.dataset.id;
+        const taskNote = document.querySelector(".taskNote");
         if(e.target.classList.contains("note")) {
             noteDialog.showModal();
+            console.log(taskManager.getSpecificTask(taskId));
             // should show the task's list of notes, and an add note button
+            console.log(taskManager.getSpecificTask(taskId).notes);
+            taskNote.value = taskManager.getSpecificTask(taskId).notes;
+            
+
+            addNoteButton.addEventListener("click", e => {
+                e.preventDefault();
+                const noteToAdd = noteForm.taskNote.value;
+                console.log(noteToAdd);
+                taskManager.updateNotes(taskManager.getSpecificTask(taskId), noteToAdd);
+                noteDialog.close();
+            })
         }
     })
 

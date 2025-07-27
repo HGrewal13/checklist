@@ -7,7 +7,7 @@ class task {
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.notes = {};
+        this.notes = "";
         this.id = randomNumGenerator();
         this.project = project || "misc";
     }

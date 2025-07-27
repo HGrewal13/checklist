@@ -6,23 +6,37 @@
     border: 1px solid purple;
 }
 
+body {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    height: 100vh;
+}
+
+header, .sidebar, .checklist {
+    padding: 20px;
+}
+
 header {
-    height: 7.5vh;
+    /* height: 7.5vh; */
     background-color: burlywood;
+    
 }
 
 .layout {
-    height: 92.5vh;
+    /* height: 92.5vh; */
     display: grid;
     grid-template-columns: 0.5fr 2.25fr;
 }
 
 .sidebar {
     background-color: cadetblue;
+    
 }
 
 .checklist {
-    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .task {
@@ -70,6 +84,16 @@ form {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.taskEntryContainer {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* #taskName {
