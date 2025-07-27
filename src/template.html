@@ -12,7 +12,11 @@
     </header>
 
     <div class="layout">
-        <div class="sidebar"></div>
+        <div class="sidebar">
+            <h2>Tasks</h2>
+            <h2>Projects</h2>
+            <ul id="projectsList"></ul>
+        </div>
         <div class="checklist">
             <div class="task">
                 <input type="checkbox" class="status"></input>
@@ -20,8 +24,8 @@
                 <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam, suscipit.</p>
                 <p class="dueDate">July 30, 2025</p>
                 <div class="tools">
-                    <div class="note"></div>
-                    <div class="trash"></div>
+                    <img src="../assets/noteIcon.svg" class="note">
+                    <img src="../assets/trashIcon.svg" class="trash">
                 </div>
             </div>
         </div>
@@ -37,7 +41,8 @@
         <form action="#">
             <div class="taskNameContainer">
                 <label for="taskName">Task</label>
-                <input type="text" id="taskName" name="taskName" value="taskName">
+                <input type="text" id="taskName" name="taskName" value="taskName" placeholder="Title: Pay Bills">
+                <!-- <textarea name="taskName" id="taskName" placeholder="Title: Pay Bills" required></textarea> -->
             </div>
 
             <div class="descriptionContainer">
@@ -45,18 +50,31 @@
                 <input type="text" id="description" name="description" value="description">
             </div>
 
+            <div class="descriptionContainer">
+                <label for="project">Projects</label>
+                <input type="text" id="project" name="project" value="project">
+            </div>
+
             <div class="dueDateContainer">
                 <label for="dueDate">Due Date</label>
-                <input type="text" id="dueDate" name="dueDate" value="dueDate">
+                <input type="date" id="dueDate" name="dueDate" value="dueDate">
             </div>
 
             <div class="priorityContainer">
-                <label for="priority">Due Date</label>
+                <label for="priority">Priority</label>
                 <input type="text" id="priority" name="priority" value="priority">
             </div>
             
             <button class="submitButton" type="submit">Submit</button>
         </form>
     </dialog>
+
+    <dialog id="noteCreation">
+        <form action="#">
+            <textarea name="note" class="note"></textarea>
+        </form>
+    </dialog>
+
+
 </body>
 </html>

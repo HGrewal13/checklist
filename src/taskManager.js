@@ -1,5 +1,5 @@
 
-// Only for storing, adding and retrieving tasks
+// Only for storing, adding and retrieving tasks data
 
 const taskManager = (function() {
     let tasks = [];
@@ -18,7 +18,23 @@ const taskManager = (function() {
 
     const getTasks = () => [...tasks];
 
-    return {addTask, deleteTask, getTasks};
+    const filterTasks = function(project) {
+        return tasks.filter(task => task.project === project);
+    }
+
+    const getProjects = () => {
+        let uniqueProjects = [];
+        
+        tasks.forEach(task => {
+            if(!uniqueProjects.includes(task.project)) {
+                uniqueProjects.push(task.project);
+            }
+        });
+
+        return uniqueProjects;
+    }
+
+    return {addTask, deleteTask, getTasks, filterTasks, getProjects};
 }())
 
 export {taskManager};

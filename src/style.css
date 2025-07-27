@@ -54,3 +54,28 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+
+/* Dialog Box */
+dialog {
+    width: 500px;
+    height: 250px;
+    position: absolute;
+    top: calc(50vh - 125px);
+    left: calc(50vw - 250px);
+}
+
+form {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+/* #taskName {
+    width: 100%;
+} */
+
+/* #description {
+    height: 50px;
+} */

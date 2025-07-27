@@ -6,10 +6,8 @@ import { task } from "./createTask";
 import { taskManager } from "./taskManager";
 
 const taskController = (function() {
-    
-
-    const processNewTask = function(name, desc, date, prio) {
-        const newTask = new task(name, desc, date, prio);
+    const processNewTask = function(name, desc, date, prio, proj) {
+        const newTask = new task(name, desc, date, prio, proj);
         taskManager.addTask(newTask);
     }
 
