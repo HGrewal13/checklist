@@ -6,6 +6,16 @@
     border: 1px solid purple;
 }
 
+:root {
+    --headerBackground: #598392;
+    --headerTextColor: #13293d;
+    --sidebarBackground: #aec3b0;
+    --mainBackground: #eff6e0;
+    --mainTextColor: #1e2019;
+    --liBeforeElementColor: black;
+    --addButtonColor: #598392;
+}
+
 body {
     display: grid;
     grid-template-rows: min-content 1fr;
@@ -18,8 +28,12 @@ header, .sidebar, .checklist {
 
 header {
     /* height: 7.5vh; */
-    background-color: burlywood;
-    
+    background-color: var(--headerBackground);
+    color: var(--headerTextColor);
+}
+
+h2 {
+    margin-bottom: 10px;
 }
 
 .layout {
@@ -29,23 +43,41 @@ header {
 }
 
 .sidebar {
-    background-color: cadetblue;
+    background-color: var(--sidebarBackground);
     
 }
 
+li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+li::before {
+    content: "➤ ";
+    color: var(--liBeforeElementColor);
+}
+
 .checklist {
+    background-color: var(--mainBackground);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: var(--mainTextColor);
 }
 
-.task {
+/* .task {
     display: grid;
     grid-template-columns: min-content 0.1fr 1fr 0.1fr min-content;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-}   
+}    */
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .status, .note, .trash {
     width: 50px;
@@ -67,6 +99,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--addButtonColor);
+    color: var(--headerTextColor);
 }
 
 
@@ -77,6 +111,10 @@ dialog {
     position: absolute;
     top: calc(50vh - 125px);
     left: calc(50vw - 250px);
+}
+
+.dialogHeading {
+    background-color: var(--headerBackground);
 }
 
 form {
@@ -92,8 +130,13 @@ textarea {
 
 .taskEntryContainer {
     padding: 5px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* #taskName {

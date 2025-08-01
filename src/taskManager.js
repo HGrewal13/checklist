@@ -31,6 +31,15 @@ const taskManager = (function() {
             notes: "test note 3",
             id: randomNumGenerator(),
             project: "project 3"
+        },
+        {
+            taskName: "Finish To Do App",
+            description: "have it fully functioning",
+            dueDate: "December 1, 2025",
+            priority: "priority",
+            notes: "improve css!",
+            id: randomNumGenerator(),
+            project: "odin project"
         }
     ];
 
